@@ -1,0 +1,10 @@
+server:
+    port: 8081
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8083/eureka
+spring:
+    application:
+        name: gateway-service
