@@ -11,7 +11,7 @@ public class GatewayApplication {
 
 	public static void main(String[] args) {
         Dotenv dotenv = Dotenv.configure()
-            .directory("../../../.env")
+            .directory(".env")
             .ignoreIfMalformed()
             .ignoreIfMissing()
             .load();
