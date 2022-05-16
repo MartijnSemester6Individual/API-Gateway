@@ -13,7 +13,7 @@ import java.util.Date;
 public class JwtUtil {
 
     Dotenv dotenv = Dotenv.load();
-    private final String SECRET_KEY = dotenv.get("SECRET_KEY");
+    private String SECRET_KEY = dotenv.get("SECRET_KEY");
 
     public boolean isValid(String token) {
         boolean validation = false;
