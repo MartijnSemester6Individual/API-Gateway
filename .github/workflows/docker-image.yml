@@ -24,8 +24,18 @@ jobs:
   build:
     needs: create-envfile
     runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag api-gateway:$(date +%s)
+    steps: 
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Docker login
+      uses: actions/login-action@v1
+      with:
+            DOCKER_USER: ${{ secrets.DOCKER_USER }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and push to Docker Hub
+      uses: docker/build-push-action@v2
+      with: 
+          context: .
+          push: true
+          tags: martijnbassa/kwetter:latest, martijnbassa/kwetter:${{ github.run.number }}
+    
