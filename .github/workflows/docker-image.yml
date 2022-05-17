@@ -8,15 +8,15 @@ on:
     branches: [ main ]
 
 jobs:
-  create-envfile:
+#   create-envfile:
  
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
  
-    steps:
-    - name: create .env file
-      run: | 
-        echo ${{ secrets.SECRET_KEY }} > ~/.env
-      shell: bash
+#     steps:
+#     - name: create .env file
+#       run: | 
+#         echo ${{ secrets.SECRET_KEY }} > .env
+#       shell: bash
 #       uses: SpicyPizza/create-envfile@v1.3
 #       with:
 #         envkey_DEBUG: false
@@ -25,9 +25,17 @@ jobs:
 #         file_name: .env
 
   build:
-    needs: create-envfile
+#     needs: create-envfile
     runs-on: ubuntu-latest
     steps: 
+    -
+      name: create .env file
+      run: |
+        touch .env
+        echo SECRET_KEY=${SECRET_KEY} > .env
+        cat .env
+      env: 
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
     - 
       name: Checkout code
       uses: actions/checkout@v2
