@@ -28,6 +28,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      env:
-        SECRET_KEY: ${{secrets.SECRET_KEY}}
-      run: docker build . --file Dockerfile --tag api-gateway:$(date +%s)
+      run: docker build . --file Dockerfile --env-file ./env --tag api-gateway:$(date +%s)
