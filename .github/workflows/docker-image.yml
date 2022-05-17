@@ -21,7 +21,7 @@ jobs:
         fail_on_empty: false
 
   build:
-
+    needs: create-envfile
     runs-on: ubuntu-latest
 
     steps:
