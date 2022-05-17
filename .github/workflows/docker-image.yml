@@ -29,6 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     -
+      name: Checkout code
+      uses: actions/checkout@v2
+    - 
       name: create .env file
       run: |
         touch .env
@@ -36,9 +39,6 @@ jobs:
         cat .env
       env: 
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-    - 
-      name: Checkout code
-      uses: actions/checkout@v2
     - 
       name: Login to DockerHub
       uses: docker/login-action@v2
