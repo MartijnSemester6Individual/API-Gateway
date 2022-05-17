@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: create .env file
       run: | 
-        echo ${{ secrets.SECRET_KEY }} > ./.env
+        echo ${{ secrets.SECRET_KEY }} > ~/.env
       shell: bash
 #       uses: SpicyPizza/create-envfile@v1.3
 #       with:
