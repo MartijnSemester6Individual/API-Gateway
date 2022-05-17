@@ -18,7 +18,7 @@ jobs:
       with:
         envkey_DEBUG: false
         envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        directory: ../../../
+        directory: ./
         file_name: .env
         fail_on_empty: false
 
