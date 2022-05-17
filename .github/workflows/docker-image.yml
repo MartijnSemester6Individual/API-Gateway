@@ -40,5 +40,5 @@ jobs:
       with: 
           context: .
           push: true
-          tags: martijnbassa/kwetter:latest, martijnbassa/kwetter:${{ github.run.number }}
+          tags: martijnbassa/kwetter:latest
     
