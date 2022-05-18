@@ -8,8 +8,8 @@ on:
     branches: [ main ]
 
 jobs: 
-
   build:
+    environment: GATEWAY_SECRETS
     runs-on: ubuntu-latest
     steps: 
     -
