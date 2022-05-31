@@ -6,7 +6,7 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import org.springframework.stereotype.Component;
-
+import javax.xml.bind.DatatypeConverter;
 import java.util.Date;
 
 @Component
@@ -14,6 +14,10 @@ public class JwtUtil {
 
     Dotenv dotenv = Dotenv.load();
     private String SECRET_KEY = dotenv.get("SECRET_KEY");
+
+    public Claims getAllClaimsFromToken(String token) {
+        return Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(SECRET_KEY)).parseClaimsJws(token).getBody();
+    }
 
     public boolean isValid(String token) {
         boolean validation = false;
