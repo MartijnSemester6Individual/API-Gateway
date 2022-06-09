@@ -18,3 +18,13 @@ spring:
                             - GET
                             - POST
                             - DELETE
+            kubernetes:
+                reload:
+                    enabled: false
+                    url-expression: "uri+'/'"
+                discovery:
+                    enabled: false
+                    locator:
+                        enabled: false
+                        url-expression: "http://'+serviceId+':'+getPort()"
+                        lower-case-service-id: true
