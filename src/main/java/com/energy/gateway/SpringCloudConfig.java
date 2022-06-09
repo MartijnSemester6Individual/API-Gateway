@@ -18,13 +18,13 @@ public class SpringCloudConfig {
         return builder.routes()
             .route(r -> r.path("/auth/**")
                 .filters(f -> f.filter(filter))
-                .uri("lb://AUTHENTICATIONAPI"))
+                .uri("lb://user-management"))
             .route(r -> r.path("/user/**")
                 .filters(f -> f.filter(filter))
-                .uri("lb://AUTHENTICATIONAPI"))
+                .uri("lb://user-management"))
             .route(r -> r.path("/api/v2/**")
                .filters(f -> f.filter(filter))
-                .uri("lb://TWEETAPI"))
+                .uri("lb://tweet-service"))
             .build();
         //test later
     }
